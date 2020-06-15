@@ -18,6 +18,15 @@ export class Tab2Page {
       this.locations = locations;
     });
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      window.location.reload();
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 500);
+  }
 
   deleteLocation(id){
     this.storage.removeLocation(id);
