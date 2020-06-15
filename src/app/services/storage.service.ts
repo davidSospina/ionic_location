@@ -9,6 +9,7 @@ const { Storage } = Plugins;
 })
 export class StorageService {
 
+  locations = [];
   constructor() { }
 
   // JSON "set" example
@@ -23,5 +24,19 @@ export class StorageService {
         name: name,
       })
     });
+  }
+
+  async keys() {
+    const keys = await Storage.keys();
+    return this.getLocations(keys.keys);
+  }
+
+  async getLocations(keys) {
+    for(const key of keys){
+      const itemsLS = await Storage.get({ key });
+      const item = JSON.parse(itemsLS.value);
+      this.locations.push(item);
+    }
+    return this.locations;
   }
 }

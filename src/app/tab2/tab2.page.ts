@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StorageService } from '../services/storage.service';
+
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  locations = [];
+  constructor(
+    private storage: StorageService
+  ) {}
 
-  constructor() {}
+  ngOnInit(): void{
+    this.storage.keys().then(locations => {
+      this.locations = locations;
+    });
+  }
 
 }
