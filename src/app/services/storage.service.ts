@@ -40,8 +40,15 @@ export class StorageService {
     return this.locations;
   }
 
+  async getLocation(id){
+    const itemLS = await Storage.get({ key: 'location/${id}' });
+    const item = JSON.parse(itemLS.value);
+    return item;
+  }
+
   async removeLocation(id) {
     await Storage.remove({ key: 'location/${id}' });
     window.location.reload();
   }
+
 }

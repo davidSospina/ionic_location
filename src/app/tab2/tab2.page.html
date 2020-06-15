@@ -17,7 +17,7 @@
   </ion-refresher>
   <ion-list *ngFor="let location of locations">
     <ion-item-sliding>
-      <ion-item>{{location.name}}</ion-item>
+      <ion-item [routerLink]="['/location', location.id]">{{location.name}}</ion-item>
       <ion-item-options side="end">
         <ion-item-option color="danger" (click)="deleteLocation(location.id)">Eliminar <ion-icon name="trash"></ion-icon></ion-item-option>
       </ion-item-options>
