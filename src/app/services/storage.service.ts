@@ -51,4 +51,9 @@ export class StorageService {
     window.location.reload();
   }
 
+  async clearLS() {
+    await Storage.clear();
+    window.location.reload();
+  }
+
 }

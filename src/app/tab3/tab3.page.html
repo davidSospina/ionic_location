@@ -1,17 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Limpiar LS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button color="danger" expand="full" shape="round" (click)="clearLS()">
+    Limpiar Local Storage
+    <ion-icon name="archive"></ion-icon>
+  </ion-button>
 </ion-content>
