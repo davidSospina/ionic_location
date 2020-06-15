@@ -39,4 +39,9 @@ export class StorageService {
     }
     return this.locations;
   }
+
+  async removeLocation(id) {
+    await Storage.remove({ key: 'location/${id}' });
+    window.location.reload();
+  }
 }

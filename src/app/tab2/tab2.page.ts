@@ -19,4 +19,8 @@ export class Tab2Page {
     });
   }
 
+  deleteLocation(id){
+    this.storage.removeLocation(id);
+  }
+
 }
